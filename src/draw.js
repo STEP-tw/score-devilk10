@@ -37,10 +37,13 @@ const drawSnake=function(snake) {
 }
 
 const drawFood=function(food) {
-  paintCell(food,"food");
+  if(food.isSuperFood())
+    paintCell(food.getPosition(),"super-food");
+  else
+  paintCell(food.getPosition(),"food");
 }
 
-const showScore=function (value) {
+const drawScore=function (value) {
   let scoreBoard=document.getElementById('score');
   scoreBoard.innerHTML='SCORE : '+value;
 }
